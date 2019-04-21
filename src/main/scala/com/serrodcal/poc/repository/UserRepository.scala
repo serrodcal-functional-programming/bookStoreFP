@@ -1,7 +1,7 @@
-package com.serrocal.poc.repository
+package com.serrodcal.poc.repository
 
 import cats.effect.Sync
-import com.serrocal.poc.model.User
+import com.serrodcal.poc.model.User
 import scalikejdbc._
 
 trait UserRepository[F[_]] {

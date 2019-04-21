@@ -1,3 +1,3 @@
-package com.serrocal.poc.exception
+package com.serrodcal.poc.exception
 
 case object UserNotFound extends RuntimeException(s"User not found")

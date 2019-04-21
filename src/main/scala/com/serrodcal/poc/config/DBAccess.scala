@@ -1,4 +1,4 @@
-package com.serrocal.poc.config
+package com.serrodcal.poc.config
 
 import cats.Monad
 import cats.effect.Sync

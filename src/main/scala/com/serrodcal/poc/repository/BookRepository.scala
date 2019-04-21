@@ -1,7 +1,7 @@
-package com.serrocal.poc.repository
+package com.serrodcal.poc.repository
 
 import cats.effect.Sync
-import com.serrocal.poc.model.Book
+import com.serrodcal.poc.model.Book
 import scalikejdbc._
 
 trait BookRepository[F[_]] {

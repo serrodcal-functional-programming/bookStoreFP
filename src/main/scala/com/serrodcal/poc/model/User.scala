@@ -1,4 +1,4 @@
-package com.serrocal.poc.model
+package com.serrodcal.poc.model
 
 import scalikejdbc._
 
