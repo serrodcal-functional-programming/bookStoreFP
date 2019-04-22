@@ -32,6 +32,8 @@ object Main extends App{
   val dbConfig = DBAccess.pure[IO].initConfig()
   implicit val session = AutoSession
 
+  dbConfig.unsafeRunSync()
+
   val host = config.getString("server.host")
   val port = config.getString("server.port")
 
@@ -39,11 +41,10 @@ object Main extends App{
     path("bookCard" / Segment ) { email =>
       logger.info(s"Received request with email: ${email}")
       val program: IO[BookCard] = new LibraryService[IO].getUserBookCard(email)
-      dbConfig.unsafeRunSync()
       val resultAsync: Future[BookCard] = program.unsafeToFuture()
       onComplete(resultAsync) {
         case Success(bookCard) => complete(bookCard.toString)
-        case Failure(_)        => complete(StatusCodes.NotFound)
+        case Failure(_)        => complete(StatusCodes.NotFound, "User not found.")
       }
     }
   }
